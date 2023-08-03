@@ -1,7 +1,7 @@
 package com.example.project2.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,7 +33,7 @@ public class Board extends BaseTimeEntity {
     private Integer hit;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonManagedReference
     private List<Comment> commentList = new ArrayList<>();
 
     public void update(String title, String content){
