@@ -13,6 +13,6 @@ public class BoardController {
 
     @GetMapping("/")
     public String index(){
-        return "/board/hi";
+        return "/board/board";
     }
 }
