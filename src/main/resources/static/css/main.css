@@ -1,4 +1,27 @@
+html{
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+}
+body{
+    min-height: 100%;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
 .navbar{
-    text-decoration-line: none;
-    color: inherit;
+    height: 150px;
+    border-bottom: 2px solid;
+}
+.board-button{
+    margin-top: 30px;
+}
+
+.postTitle{
+    text-align: center;
 }

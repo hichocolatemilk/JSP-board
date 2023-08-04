@@ -4,6 +4,8 @@ package com.example.project2.entity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@DynamicInsert
 public class Board extends BaseTimeEntity {
 
     @Id
@@ -29,7 +32,8 @@ public class Board extends BaseTimeEntity {
     @Column(nullable = false)
     private String writer;
 
-    @Column(columnDefinition = "integer default 0")
+    @Column(nullable = true)
+    @ColumnDefault("0")
     private Integer hit;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
