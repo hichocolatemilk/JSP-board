@@ -5,10 +5,9 @@
 
 <div>
     <h1 class="postTitle">게시글 등록</h1>
-
     <div class="col-md-12">
-        <div class="col-md-3">
-            <form method="post" enctype="multipart/form-data">
+        <div class="col-md-3 ">
+            <form method="post">
                 <div class="form-group">
                     <label for="title">제목</label>
                     <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">

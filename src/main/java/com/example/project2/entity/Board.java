@@ -37,7 +37,6 @@ public class Board extends BaseTimeEntity {
     private Integer hit;
 
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    @JsonManagedReference
     private List<Comment> commentList = new ArrayList<>();
 
     public void update(String title, String content){

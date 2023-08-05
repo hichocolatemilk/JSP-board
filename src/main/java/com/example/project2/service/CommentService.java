@@ -16,6 +16,7 @@ import java.util.List;
 @Transactional
 public class CommentService {
 
+    private final BoardService boardService;
     private final CommentRepository commentRepository;
 
     public List<Comment> getAllComments() {
@@ -28,18 +29,28 @@ public class CommentService {
         return new CommentResDTO(comment);
     }
 
-    public Long commentSave(CommentReqDTO commentReqDTO){
-        return commentRepository.save(commentReqDTO.toEntity()).getId();
+    public CommentResDTO getCommentId(Long id) {
+        Comment comment =  commentRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("없음"));
+
+        return new CommentResDTO(comment);
     }
 
-    public void deleteComment(Long id){
+    public Long commentSave(Long id,CommentReqDTO commentReqDTO){
+        boardService.getBoardId(id);
+        return commentRepository.save(commentReqDTO.toEntity()).getCommentId();
+    }
+
+    public void deleteComment(Long id, Long commentId){
+        boardService.getBoardId(id);
         Comment comment = commentRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("댓글을 찾을 수 없습니다." + id));
         commentRepository.delete(comment);
     }
 
-    public Long updateComment(Long id, CommentUpdateDTO commentUpdateDTO){
-        Comment comment = commentRepository.findById(id).orElseThrow(
+    public Long updateComment(Long id, Long commentId, CommentUpdateDTO commentUpdateDTO){
+        boardService.getBoardId(id);
+        Comment comment = commentRepository.findById(commentId).orElseThrow(
                 () -> new IllegalArgumentException("댓글을 찾을 수 없습니다." + id));
         comment.update(commentUpdateDTO.getComment());
         return id;

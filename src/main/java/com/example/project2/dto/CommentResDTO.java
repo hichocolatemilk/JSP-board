@@ -7,15 +7,17 @@ import lombok.Getter;
 @Getter
 public class CommentResDTO {
 
-    private Long id;
+    private Long commentId;
     private String comment;
     private String commentWriter;
+    private String date;
     private Long boardId;
 
     public CommentResDTO(Comment comment){
-        this.id = comment.getId();
+        this.commentId = comment.getCommentId();
         this.comment = comment.getComment();
         this.commentWriter = comment.getCommentWriter();
+        this.date = comment.getModifiedDate();
         this.boardId = comment.getBoard().getId();
     }
 }

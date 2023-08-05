@@ -7,6 +7,7 @@
     </p>
 </footer>
 <script src="/js/board.js"></script>
+<script src="/js/comment.js"></script>
 </div>
 </body>
 </html>

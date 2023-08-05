@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@include file ="../view/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div>
     <div class="board-button">
@@ -18,6 +19,7 @@
             <th scope="col">작성자</th>
             <th scope="col">수정일자</th>
             <th scope="col">조회수</th>
+            <th scope="col">댓글</th>
         </tr>
         </thead>
         <tbody>
@@ -28,9 +30,9 @@
                 <td>${board.writer}</td>
                 <td>${board.modifiedDate}</td>
                 <td>${board.hit}</td>
+                <td>${fn:length(board.commentList)}</td>
             </tr>
         </c:forEach>
-
         </tbody>
     </table>
 </div>

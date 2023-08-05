@@ -1,6 +1,7 @@
 package com.example.project2.controller;
 
 import com.example.project2.dto.BoardResDTO;
+import com.example.project2.dto.CommentResDTO;
 import com.example.project2.entity.Board;
 import com.example.project2.service.BoardService;
 import lombok.Getter;
@@ -34,7 +35,11 @@ public class BoardController {
     @GetMapping(value = "/post/view/{id}")
     public String boardDtl(@PathVariable("id") Long id, Model model){
         BoardResDTO boardResDTO = boardService.getBoardId(id);
-
+        List<CommentResDTO> commentList =  boardResDTO.getCommentList();
+        if (commentList != null && !commentList.isEmpty())
+        {
+            model.addAttribute("commentList", commentList); // 댓글
+        }
         boardService.updateHit(id); //조회수
         model.addAttribute("board", boardResDTO);
         return "/board/boardDtl";

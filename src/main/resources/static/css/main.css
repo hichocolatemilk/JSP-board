@@ -21,7 +21,39 @@ body{
 .board-button{
     margin-top: 30px;
 }
+.col-md-12{
+    width:100%;
+}
+.col-md-3{
+    text-align: center;
+    border : 2px solid;
+    margin: 0 auto;
+    width: 100%;
+
+}
 
 .postTitle{
+    text-align: center;
+}
+.trth{
+    width: 50px;
+}
+.trtd{
+    width: 100px;
+}
+.table{
+    margin-top: 20px;
+    border: 1px solid;
+    height: 150px;
+}
+
+.board-button{
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+}
+
+.commentHeader{
+    border-bottom: 2px solid;
     text-align: center;
 }

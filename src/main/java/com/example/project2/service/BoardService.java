@@ -31,7 +31,6 @@ public class BoardService {
         return new BoardResDTO(board);
     }
 
-
     //CREATE
     public Long boardSave(BoardReqDTO boardReqDTO){
         return boardRepository.save(boardReqDTO.toEntity()).getId();
@@ -44,7 +43,6 @@ public class BoardService {
         boardRepository.delete(board);
     }
 
-
     //UPDATE
     public Long boardUpdate(Long id, BoardUpdateDTO boardUpdateDTO){
         Board board = boardRepository.findById(id).orElseThrow(
@@ -53,7 +51,6 @@ public class BoardService {
 
         return id;
     }
-
 
     //조회수
     public int updateHit(Long id){

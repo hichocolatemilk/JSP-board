@@ -43,7 +43,7 @@ let board = {
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
         }).done(function() {
-            alert("등록");
+            alert("수정");
             window.location.href = "/";
         }).fail(function (){
             alert("실패");
