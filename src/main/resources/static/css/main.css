@@ -31,6 +31,9 @@ body{
     width: 100%;
 
 }
+.row{
+    margin-left: 30px;
+}
 
 .postTitle{
     text-align: center;
@@ -43,7 +46,6 @@ body{
 }
 .table{
     margin-top: 20px;
-    border: 1px solid;
     height: 150px;
 }
 
@@ -55,5 +57,25 @@ body{
 
 .commentHeader{
     border-bottom: 2px solid;
+    text-align: center;
+}
+
+.row{
+    width: 100%;
+    border-bottom: 2px solid;
+    margin-left: 0px;
+    background-color: azure;
+    justify-content: center;
+}
+.row button{
+
+}
+
+.commentGroup{
+    width: 1000px;
+    margin-left: 10px;
+}
+.commentList{
+    margin: 0 auto;
     text-align: center;
 }

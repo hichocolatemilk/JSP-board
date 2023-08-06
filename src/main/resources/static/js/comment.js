@@ -29,7 +29,7 @@ let comment = {
             data: JSON.stringify(data),
         }).done(function () {
             alert("등록");
-            window.location.href = "/board/post/view/" + id;
+            window.location.href = "/post/view/" + id;
         }).fail(function () {
             alert("실패");
             console.log(data)
@@ -70,7 +70,7 @@ let comment = {
             contentType: 'application/json; charset=utf-8,'
         }).done(function() {
             alert("삭제");
-            window.location.href = "/board/post/view/" + id;
+            window.location.href = "/post/view/" + id;
         }).fail(function (){
             alert("실패");
         })

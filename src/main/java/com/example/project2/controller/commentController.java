@@ -1,6 +1,7 @@
 package com.example.project2.controller;
 
 import com.example.project2.dto.BoardResDTO;
+import com.example.project2.dto.CommentResDTO;
 import com.example.project2.entity.Board;
 import com.example.project2.service.BoardService;
 import com.example.project2.service.CommentService;
@@ -17,10 +18,13 @@ public class commentController {
     private final CommentService commentService;
     private final BoardService boardService;
 
-    @GetMapping(value = "/board/post/{id}/comment")
-    public String boardDtl(@PathVariable("id") Long id, Model model){
+
+    @GetMapping(value = "/board/post/{id}/comment/{commentId}")
+    public String commentUpdate(@PathVariable("id") Long id, @PathVariable("commentId") Long commentId, Model model) {
         BoardResDTO boardResDTO = boardService.getBoardId(id);
+        CommentResDTO commentResDTO = commentService.getCommentId(commentId);
         model.addAttribute("board", boardResDTO);
-        return "/comment/comment";
+        model.addAttribute("comment", commentResDTO);
+        return "/comment/commentUpdate";
     }
 }

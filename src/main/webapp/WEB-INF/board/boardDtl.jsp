@@ -10,7 +10,7 @@
 
         <tr>
             <th class="trth" >게시글 번호 #</th>
-            <td class="trtd" >${board.id}</td>
+            <td class="trtd"  >${board.id}</td>
             <th class="trth">제목</th>
             <td class="trtd" >${board.title}</td>
         </tr>
@@ -28,7 +28,7 @@
     </table>
     <div class="commentCount">
         <i class="bi bi-chat-dots" style="font-size: 2rem"></i>
-        <span>댓글</span>
+        <span>전체 댓글 수</span>
         <%--        <c:if test="${fn:length(board.commentList) <= 0}">--%>
         <%--        <span>0</span>--%>
         <%--        </c:if>--%>
@@ -39,12 +39,35 @@
     </div>
     <div class="comment">
         <h2 class="commentHeader"> 댓글 </h2>
+        <form class="row">
+            <div>
+                <input type="hidden" id="id" c:out value="${board.id}">
+            </div>
+            <div class="input-group-sm mb-3">
+                <input type="text" class="form-control" id="commentWriter" placeholder="작성자를 입력하세요">
+            </div>
+            <div class="commentGroup">
+                <textarea class="form-control" id="comment" placeholder="댓글 입력하세요"></textarea>
+                <button type="button" class="btn btn-primary" id="btn-comment-save"> 등록 </button>
+            </div>
+        </form>
         <div>
             <c:forEach items="${commentList}" var="comment" varStatus="status">
+            <div class="commentList">
+                <span>${comment.commentId}</span>
                 <span>${comment.comment}</span>
-                <span>${comment.commentWriter}</span>
+                <span>(작성자)${comment.commentWriter}</span>
                 <span>${comment.date}</span>
+                <a onClick="location.href='../comment/commentUpdate.jsp'" href="/post/view/${board.id}/comment/${comment.commentId}}">
+                    <i class="bi bi-clipboard"></i>
+                </a>
+            </div>
             </c:forEach>
+
+        </div>
+
+        <div>
+            <i></i>
         </div>
     </div>
 
@@ -56,7 +79,5 @@
             <button onclick="location.href='comment.jsp'" type="button" class="btn btn-info">댓글쓰기</button>
         </a>
     </div>
-
-
 </div>
 <%@include file ="../view/footer.jsp" %>
