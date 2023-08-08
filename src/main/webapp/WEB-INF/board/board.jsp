@@ -6,7 +6,7 @@
 
 <div>
     <div class="board-button">
-        <a href="/post">
+        <a href="/board/post">
             <button type="button" class="btn btn-primary">게시글 쓰기</button>
         </a>
     </div>
@@ -23,10 +23,12 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${boardList}" var="board" varStatus="status">
+
+        <%--  반복문을 통한 board 내용       --%>
+        <c:forEach items="${boardList.content}" var="board" varStatus="status"> <%-- jsp에서 content 중요--%>
             <tr>
                 <td>${board.id}</td>
-                <td onClick="location.href='boardDtl.jsp'"><a href="/post/view/${board.id}">${board.title}</a></td>
+                <td onClick="location.href='boardDtl.jsp'"><a href="/board/view/${board.id}">${board.title}</a></td>
                 <td>${board.writer}</td>
                 <td>${board.modifiedDate}</td>
                 <td>${board.hit}</td>
@@ -35,5 +37,41 @@
         </c:forEach>
         </tbody>
     </table>
+
+    <div class="text-xs-center">
+        <ul class="pagination">
+
+            <%--  이전 --%>
+            <c:choose>
+                <c:when test="${boardList.first}"></c:when>
+                <c:otherwise>
+                    <li class="page-item"><a class="page-link" href="/?page=0">처음</a></li>
+                    <li class="page-item"><a class="page-link" href="/?page=${boardList.number-1}">&larr;</a></li>
+                </c:otherwise>
+            </c:choose>
+
+            <%-- 페이징 --%>
+            <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
+                <c:choose>
+                    <c:when test="${boardList.pageable.pageNumber+1 == i}">
+                        <li class="page-item disabled"><a class="page-link" href="/?page=${i-1}">${i}</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link" href="/?page=${i-1}">${i}</a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+
+            <%--다음 --%>
+            <c:choose>
+                <c:when test="${boardList.last}"></c:when>
+                <c:otherwise>
+                    <li class="page-item "><a class="page-link" href="?page=${boardList.number+1}">&rarr;</a></li>
+                    <li class="page-item "><a class="page-link" href="?page=${boardList.totalPages-1}">마지막</a></li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+    </div>
+
 </div>
 <%@include file ="../view/footer.jsp" %>

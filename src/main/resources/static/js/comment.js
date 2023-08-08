@@ -29,7 +29,7 @@ let comment = {
             data: JSON.stringify(data),
         }).done(function () {
             alert("등록");
-            window.location.href = "/post/view/" + id;
+            window.location.href = "/board/view/" + id;
         }).fail(function () {
             alert("실패");
             console.log(data)
@@ -54,7 +54,7 @@ let comment = {
             data: JSON.stringify(data),
         }).done(function () {
             alert("수정");
-            window.location.href = "/post/view/" + id;
+            window.location.href = "/board/view/" + id;
         }).fail(function () {
             alert("실패");
             console.log(data)
@@ -65,12 +65,12 @@ let comment = {
         let commentId = $('#commentId').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/post/' + id + '/comment/' + commentId,
+            url: '/api/board/' + id + '/comment/' + commentId,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,'
         }).done(function() {
             alert("삭제");
-            window.location.href = "/post/view/" + id;
+            window.location.href = "/board/view/" + id;
         }).fail(function (){
             alert("실패");
         })

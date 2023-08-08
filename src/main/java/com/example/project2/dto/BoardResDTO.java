@@ -41,4 +41,5 @@ public class BoardResDTO {
                 .map(CommentResDTO:: new).collect(Collectors.toList());
 
     }
+
 }

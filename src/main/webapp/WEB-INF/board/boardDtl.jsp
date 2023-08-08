@@ -8,6 +8,7 @@
 <div>
     <table  class="table table-bordered">
 
+        <%-- board 내용        --%>
         <tr>
             <th class="trth" >게시글 번호 #</th>
             <td class="trtd"  >${board.id}</td>
@@ -26,6 +27,8 @@
         </tr>
 
     </table>
+
+    <%--  댓글 수   --%>
     <div class="commentCount">
         <i class="bi bi-chat-dots" style="font-size: 2rem"></i>
         <span>전체 댓글 수</span>
@@ -37,6 +40,7 @@
         <%--        </c:if>--%>
 
     </div>
+
     <div class="comment">
         <h2 class="commentHeader"> 댓글 </h2>
         <form class="row">
@@ -51,6 +55,7 @@
                 <button type="button" class="btn btn-primary" id="btn-comment-save"> 등록 </button>
             </div>
         </form>
+
         <div>
             <c:forEach items="${commentList}" var="comment" varStatus="status">
             <div class="commentList">
@@ -58,25 +63,17 @@
                 <span>${comment.comment}</span>
                 <span>(작성자)${comment.commentWriter}</span>
                 <span>${comment.date}</span>
-                <a onClick="location.href='../comment/commentUpdate.jsp'" href="/post/view/${board.id}/comment/${comment.commentId}}">
+                <a onClick="location.href='commentUpdate.jsp'" href="/board/view/${board.id}/comment/${comment.commentId}">
                     <i class="bi bi-clipboard"></i>
                 </a>
             </div>
             </c:forEach>
-
-        </div>
-
-        <div>
-            <i></i>
         </div>
     </div>
 
     <div class="board-button">
         <a href="/post/view/${board.id}">
             <button onClick="location.href='update.jsp'" type="button" class="btn btn-secondary">게시글 수정</button>
-        </a>
-        <a href="/board/post/${board.id}/comment">
-            <button onclick="location.href='comment.jsp'" type="button" class="btn btn-info">댓글쓰기</button>
         </a>
     </div>
 </div>

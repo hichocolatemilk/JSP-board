@@ -17,15 +17,15 @@
 
                 <div class="form-group">
                     <label for="comment"> 댓글 내용 </label>
-                    <textarea class="form-control" id="comment" placeholder="댓글 내용을 입력하세요"></textarea>
+                    <textarea class="form-control" id="comment"  placeholder="댓글 내용을 입력하세요">${comment.comment}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="commentWriter"> 작성자 </label>
-                    <input type="text" class="form-control" id="commentWriter" placeholder="작성자를 입력하세요" readonly>
+                    <input type="text" class="form-control" id="commentWriter" c:out value="${comment.commentWriter}" readonly>
                 </div>
             </form>
             <button type="button" class="btn btn-primary" id="btn-comment-update"> 수정 </button>
-            <a onClick="location.href='boardDtl.jsp'" href="/post/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
+            <a onClick="location.href='boardDtl.jsp'" href="/board/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
             <button type="button" class="btn btn-danger" id="btn-comment-delete">삭제</button>
         </div>
     </div>

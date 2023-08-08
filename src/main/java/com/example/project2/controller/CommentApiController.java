@@ -29,7 +29,7 @@ public class CommentApiController {
     @Operation(summary = "선택 조회", description = "특정 댓글을 조회한다.")
     @GetMapping("/comment/{id}")
     public CommentResDTO getComment(@PathVariable("id") Long id) {
-        return commentService.getComment(id);
+        return commentService.getCommentId(id);
     }
 
     @Operation(summary = "댓글 생성", description = "댓글을 생성한다.")
@@ -40,7 +40,7 @@ public class CommentApiController {
 
     @Operation(summary = "선택한 댓글 수정", description = "선택한 댓글을 수정한다.")
     @PutMapping("/board/{id}/comment/{commentId}")
-    public Long commentUpdate(@PathVariable("id") Long id,@PathVariable("commentId") Long commentId, CommentUpdateDTO commentUpdateDTO){
+    public Long commentUpdate(@PathVariable("id") Long id,@PathVariable("commentId") Long commentId, @RequestBody CommentUpdateDTO commentUpdateDTO){
         return commentService.updateComment(id,commentId ,commentUpdateDTO);
     }
 

@@ -23,7 +23,7 @@ public class Comment extends BaseTimeEntity {
     private String commentWriter;
 
     @JoinColumn(name = "board_id")
-    @ManyToOne()
+    @ManyToOne
     private Board board;
 
     public void update(String comment){

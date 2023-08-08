@@ -6,6 +6,8 @@ import com.example.project2.dto.BoardUpdateDTO;
 import com.example.project2.entity.Board;
 import com.example.project2.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,37 +21,47 @@ public class BoardService {
     private final BoardRepository boardRepository;
 
 
+    //MVC PAGING
+    public Page<Board> getList(Pageable pageable) {
 
-    //READ
-    public List<Board> getTotal(){
-       return boardRepository.findAll();
+        return boardRepository.findAll(pageable);
     }
 
+
+    /* ------------------------------------- */
+
+    //REST CREATE
+    public Long boardSave(BoardReqDTO boardReqDTO){
+        return boardRepository.save(boardReqDTO.toEntity()).getId();
+    }
+
+    //REST READ(전체)
+    public List<Board> getTotal(){
+        return boardRepository.findAll();
+
+    }
+
+    //REST READ(단일)
     public BoardResDTO getBoardId(Long id){
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("게시글을 찾을 수 없습니다." + id));
         return new BoardResDTO(board);
     }
 
-    //CREATE
-    public Long boardSave(BoardReqDTO boardReqDTO){
-        return boardRepository.save(boardReqDTO.toEntity()).getId();
-    }
-
-    //DELETE
-    public void boardDelete(Long id){
-        Board board = boardRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("게시글을 찾을 수 없습니다." + id));
-        boardRepository.delete(board);
-    }
-
-    //UPDATE
+    //REST UPDATE
     public Long boardUpdate(Long id, BoardUpdateDTO boardUpdateDTO){
         Board board = boardRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("게시글을 찾을 수 없습니다." + id));
         board.update(boardUpdateDTO.getTitle(), boardUpdateDTO.getContent());
 
         return id;
+    }
+
+    //REST DELETE
+    public void boardDelete(Long id){
+        Board board = boardRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("게시글을 찾을 수 없습니다." + id));
+        boardRepository.delete(board);
     }
 
     //조회수

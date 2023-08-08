@@ -19,7 +19,7 @@ public class commentController {
     private final BoardService boardService;
 
 
-    @GetMapping(value = "/board/post/{id}/comment/{commentId}")
+    @GetMapping(value = "/board/view/{id}/comment/{commentId}")
     public String commentUpdate(@PathVariable("id") Long id, @PathVariable("commentId") Long commentId, Model model) {
         BoardResDTO boardResDTO = boardService.getBoardId(id);
         CommentResDTO commentResDTO = commentService.getCommentId(commentId);

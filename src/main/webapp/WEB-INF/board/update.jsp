@@ -25,7 +25,7 @@
                 </div>
             </form>
             <button type="button" class="btn btn-primary" id="btn-update"> 수정 </button>
-            <a onClick="location.href='boardDtl.jsp'" href="/post/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
+            <a onClick="location.href='boardDtl.jsp'" href="/board/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
             <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
         </div>
     </div>
