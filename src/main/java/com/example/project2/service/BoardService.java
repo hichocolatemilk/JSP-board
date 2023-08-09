@@ -27,6 +27,11 @@ public class BoardService {
         return boardRepository.findAll(pageable);
     }
 
+    //MVC Search
+    public Page<Board> search(String searchTitle, Pageable pageable) {
+        return boardRepository.findByTitle(searchTitle, pageable);
+    }
+
 
     /* ------------------------------------- */
 

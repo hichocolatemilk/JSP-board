@@ -22,8 +22,16 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/")
-    public String board(Model model, @PageableDefault(size = 5) Pageable pageable){
-        Page<Board> boardPage = boardService.getList(pageable);
+    public String board(Model model, @PageableDefault(size = 5) Pageable pageable, String searchTitle){
+        
+        Page<Board> boardPage = null;
+
+        // 검색 관련
+        if(searchTitle  == null){
+            boardPage =  boardService.getList(pageable);
+        }else{
+            boardPage = boardService.search(searchTitle, pageable);
+        }
 
         // ************* 중요 페이징 ****************//
         int pageNumber= boardPage.getPageable().getPageNumber(); //현재페이지

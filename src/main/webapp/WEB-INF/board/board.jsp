@@ -45,8 +45,8 @@
             <c:choose>
                 <c:when test="${boardList.first}"></c:when>
                 <c:otherwise>
-                    <li class="page-item"><a class="page-link" href="/?page=0">처음</a></li>
-                    <li class="page-item"><a class="page-link" href="/?page=${boardList.number-1}">&larr;</a></li>
+                    <li class="page-item"><a class="page-link" href="/?page=0&searchTitle=${param.searchTitle}">처음</a></li>
+                    <li class="page-item"><a class="page-link" href="/?page=${boardList.number-1}&searchTitle=${param.searchTitle}">&larr;</a></li>
                 </c:otherwise>
             </c:choose>
 
@@ -54,10 +54,10 @@
             <c:forEach begin="${startBlockPage}" end="${endBlockPage}" var="i">
                 <c:choose>
                     <c:when test="${boardList.pageable.pageNumber+1 == i}">
-                        <li class="page-item disabled"><a class="page-link" href="/?page=${i-1}">${i}</a></li>
+                        <li class="page-item disabled"><a class="page-link" href="/?page=${i-1}&searchTitle=${param.searchTitle}">${i}</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="page-item"><a class="page-link" href="/?page=${i-1}">${i}</a></li>
+                        <li class="page-item"><a class="page-link" href="/?page=${i-1}&searchTitle=${param.searchTitle}">${i}</a></li>
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
@@ -66,8 +66,8 @@
             <c:choose>
                 <c:when test="${boardList.last}"></c:when>
                 <c:otherwise>
-                    <li class="page-item "><a class="page-link" href="?page=${boardList.number+1}">&rarr;</a></li>
-                    <li class="page-item "><a class="page-link" href="?page=${boardList.totalPages-1}">마지막</a></li>
+                    <li class="page-item "><a class="page-link" href="?page=${boardList.number+1}&searchTitle=${param.searchTitle}">&rarr;</a></li>
+                    <li class="page-item "><a class="page-link" href="?page=${boardList.totalPages-1}&searchTitle=${param.searchTitle}">마지막</a></li>
                 </c:otherwise>
             </c:choose>
         </ul>
