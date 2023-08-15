@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@DynamicUpdate
 @DynamicInsert
 public class Board extends BaseTimeEntity {
 
@@ -40,8 +42,12 @@ public class Board extends BaseTimeEntity {
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
+
+
     public void update(String title, String content){
         this.title = title;
         this.content = content;
     }
+
+
 }

@@ -41,6 +41,7 @@
 
     </div>
 
+    <%--  댓글 작성   --%>
     <div class="comment">
         <h2 class="commentHeader"> 댓글 </h2>
         <form class="row">
@@ -56,6 +57,7 @@
             </div>
         </form>
 
+        <%--  댓글    --%>
         <div>
             <c:forEach items="${commentList}" var="comment" varStatus="status">
             <div class="commentList">
