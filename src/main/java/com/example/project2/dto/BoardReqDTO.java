@@ -21,11 +21,14 @@ public class BoardReqDTO {
     @Schema(description = "작성자")
     private String writer;
 
+    private Long fileId;
+
     public Board toEntity() {
         return Board.builder()
                 .title(title)
                 .content(content)
                 .writer(writer)
+                .fileId(fileId)
                 .build();
     }
 

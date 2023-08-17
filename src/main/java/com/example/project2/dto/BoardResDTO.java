@@ -25,11 +25,10 @@ public class BoardResDTO {
     @Schema(description = "조회수", defaultValue = "null")
     private int hit;
 
-
-
-
     @Schema(description = "댓글")
     private List<CommentResDTO> commentList;
+
+    private Long fileId;
 
     public BoardResDTO(Board board){
         this.id = board.getId();

@@ -42,6 +42,9 @@ public class Board extends BaseTimeEntity {
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
+    @Column
+    private Long fileId;
+
 
 
     public void update(String title, String content){
