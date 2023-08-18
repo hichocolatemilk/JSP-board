@@ -24,8 +24,8 @@ public class FileService {
         log.info("upload file: {}", file);
         File files = fileRepository.save(
                 File.builder()
-                        .name(file.getOriginalFilename())
-                        .type(file.getContentType())
+                        .fileName(file.getOriginalFilename())
+                        .fileType(file.getContentType())
                         .fileData(FileUtils.compressFile(file.getBytes()))
                         .build());
         if (files != null) {

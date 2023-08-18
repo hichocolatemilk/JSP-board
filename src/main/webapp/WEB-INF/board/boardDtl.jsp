@@ -60,15 +60,25 @@
         <%--  댓글    --%>
         <div>
             <c:forEach items="${commentList}" var="comment" varStatus="status">
-            <div class="commentList">
-                <span>${comment.commentId}</span>
-                <span>${comment.comment}</span>
-                <span>(작성자)${comment.commentWriter}</span>
-                <span>${comment.date}</span>
-                <a onClick="location.href='commentUpdate.jsp'" href="/board/view/${board.id}/comment/${comment.commentId}">
-                    <i class="bi bi-clipboard"></i>
-                </a>
-            </div>
+                <div class="commentList">
+                    <span>${comment.commentId}</span>
+                    <span>${comment.comment}</span>
+                    <span>(작성자)${comment.commentWriter}</span>
+                    <span>${comment.date}</span>
+                    <a onClick="location.href='commentUpdate.jsp'" href="/board/view/${board.id}/comment/${comment.commentId}">
+                        <i class="bi bi-clipboard"></i>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+
+
+        <div>
+            <c:forEach items="${fileList}" var="file" varStatus="status">
+                <div>
+                    <span>${file.id}</span>
+                    <span>${file.fileName}</span>
+                </div>
             </c:forEach>
         </div>
     </div>

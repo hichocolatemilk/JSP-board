@@ -8,6 +8,7 @@ import com.example.project2.service.CommentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequestMapping(value = "/api")
 @RestController
 @Tag(name = "댓글 API", description = "댓글 API(CRUD)")
+@Slf4j
 public class CommentApiController {
 
     private final CommentService commentService;
@@ -35,12 +37,18 @@ public class CommentApiController {
     @Operation(summary = "댓글 생성", description = "댓글을 생성한다.")
     @PostMapping("/board/{id}/comment")
     public Long commentPost(@PathVariable("id")Long id,@RequestBody CommentReqDTO commentReqDTO){
+        log.info("===== POST =====");
+        log.info("JSON: " + commentReqDTO);
+        log.info("================");
         return commentService.commentSave(id,commentReqDTO);
     }
 
     @Operation(summary = "선택한 댓글 수정", description = "선택한 댓글을 수정한다.")
     @PutMapping("/board/{id}/comment/{commentId}")
     public Long commentUpdate(@PathVariable("id") Long id,@PathVariable("commentId") Long commentId, @RequestBody CommentUpdateDTO commentUpdateDTO){
+        log.info("===== PUT =====");
+        log.info("JSON: " + commentUpdateDTO);
+        log.info("================");
         return commentService.updateComment(id,commentId ,commentUpdateDTO);
     }
 
