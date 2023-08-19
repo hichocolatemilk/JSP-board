@@ -13,12 +13,13 @@ import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping(value = "/api")
 @Slf4j
 public class FileApiController {
 
     private final FileService fileService;
 
-    @PostMapping("/api/fileSystem")
+    @PostMapping("/fileSystem")
     public ResponseEntity<?> uploadImage(@RequestParam("file") MultipartFile file) throws IOException {
         String uploadImage = fileService.uploadImage(file);
         log.info("===== POST =====");
@@ -29,7 +30,7 @@ public class FileApiController {
     }
 
     // 다운로드
-    @GetMapping("/api/fileSystem/{fileName}")
+    @GetMapping("/fileSystem/{fileName}")
     public ResponseEntity<?> downloadImage(@PathVariable("fileName") String fileName) {
         byte[] downloadImage = fileService.downloadImage(fileName);
         return ResponseEntity.status(HttpStatus.OK)

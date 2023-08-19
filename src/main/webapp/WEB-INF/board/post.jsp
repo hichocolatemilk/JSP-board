@@ -21,9 +21,9 @@
                     <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
                 </div>
             </form>
-            <form  action="/api/fileSystem" method="post" enctype="multipart/form-data" id="fileForm">
-                <input type="file" name="file">
-                <button id="btn-file">파일 등록</button>
+            <form id="fileForm">
+                <input type="file" id="file">
+                <button type="button" id="btn-file">파일 등록</button>
             </form>
             <button type="submit" class="btn btn-primary" id="btn-save"> 등록 </button>
             <a href="/" role="button" class="btn btn-secondary"> 취소 </a>

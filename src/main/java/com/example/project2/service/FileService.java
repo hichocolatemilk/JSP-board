@@ -19,6 +19,7 @@ import java.io.IOException;
 public class FileService {
 
     private final FileRepository fileRepository;
+    private final BoardService boardService;
 
     public String uploadImage(MultipartFile file) throws IOException {
         log.info("upload file: {}", file);
@@ -29,10 +30,9 @@ public class FileService {
                         .fileData(FileUtils.compressFile(file.getBytes()))
                         .build());
         if (files != null) {
-            log.info("imageData: {}", files);
-            return "file uploaded successfully : " + file.getOriginalFilename();
+            log.info("fileData: {}", files);
+            log.info("Successfully uploaded");
         }
-
         return null;
     }
 

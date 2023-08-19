@@ -25,8 +25,8 @@ public class File extends BaseTimeEntity {
 
     private String fileType;
 
+    @OneToOne
     @JoinColumn(name = "board_id")
-    @ManyToOne
     private Board board;
 
     @Lob

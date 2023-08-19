@@ -25,6 +25,12 @@
             <th class="trth">내용</th>
             <td  colspan='3' class="tdContent">${board.content}</td>
         </tr>
+        <tr>
+            <th class="trth">파일 번호</th>
+            <td class="trtd" >${file.id}</td>
+            <th class="trth">파일명</th>
+            <td class="trtd" >${file.fileName}</td>
+        </tr>
 
     </table>
 
@@ -72,15 +78,6 @@
             </c:forEach>
         </div>
 
-
-        <div>
-            <c:forEach items="${fileList}" var="file" varStatus="status">
-                <div>
-                    <span>${file.id}</span>
-                    <span>${file.fileName}</span>
-                </div>
-            </c:forEach>
-        </div>
     </div>
 
     <div class="board-button">

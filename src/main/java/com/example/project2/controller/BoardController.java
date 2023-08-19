@@ -60,14 +60,14 @@ public class BoardController {
     public String boardDtl(@PathVariable("id") Long id, Model model){
         BoardResDTO boardResDTO = boardService.getBoardId(id);
         List<CommentResDTO> commentList =  boardResDTO.getCommentList();
-        List<FileResDTO> fileList = boardResDTO.getFileList();
+        File file = boardResDTO.getFile();
 
         if (commentList != null && !commentList.isEmpty())
         {
             model.addAttribute("commentList", commentList); // 댓글
         }
         boardService.updateHit(id); //조회수
-        model.addAttribute("fileList", fileList);
+        model.addAttribute("file", file);
         model.addAttribute("board", boardResDTO);
         return "/board/boardDtl";
     }

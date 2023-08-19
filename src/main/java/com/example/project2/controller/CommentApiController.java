@@ -7,6 +7,7 @@ import com.example.project2.entity.Comment;
 import com.example.project2.service.CommentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class CommentApiController {
 
     @Operation(summary = "댓글 생성", description = "댓글을 생성한다.")
     @PostMapping("/board/{id}/comment")
-    public Long commentPost(@PathVariable("id")Long id,@RequestBody CommentReqDTO commentReqDTO){
+    public Long commentPost(@PathVariable("id")Long id,@RequestBody  @Valid CommentReqDTO commentReqDTO){
         log.info("===== POST =====");
         log.info("JSON: " + commentReqDTO);
         log.info("================");

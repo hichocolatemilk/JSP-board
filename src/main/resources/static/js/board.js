@@ -66,30 +66,26 @@ let board = {
             alert("실패");
         })
     },
-    file: function(){
-        const file = $("#file")[0].files[0];
+    file: function(e) {
 
+        const file = $("#file")[0].files[0];
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("json", new Blob([JSON.stringify(data)], {type: "application/json"}));
 
         $.ajax({
-            url: "/api/fileSystem",
             type: 'POST',
+            url: "/api/fileSystem",
             data: formData,
             contentType: false,
             processData: false,
-            enctype: "multipart/form-data",
-            success: function(result) {
-                alert("등록 성공");
-                location.reload();
-            },
-            error: function(xhr) {
-                alert("등록 실패")
-                console.log(xhr);
-            }
+        }).done(function() {
+            // 파일 업로드 성공 시 동작
+            alert("파일업로드 완료");
+        }).fail(function(xhr, status, error) {
+            // 파일 업로드 실패 시 동작
+            console.log("Ajax 요청 실패:", error);
+            alert("파일업로드 실패");
         });
-
     }
 };
 board.init();
