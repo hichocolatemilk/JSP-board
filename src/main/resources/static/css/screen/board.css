@@ -4,3 +4,6 @@
     right: 0;
     bottom: 100px;
 }
+.pagination{
+    justify-content: center;
+}

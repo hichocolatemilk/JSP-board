@@ -42,7 +42,7 @@ public class Board extends BaseTimeEntity {
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToOne(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private File file;
 
 

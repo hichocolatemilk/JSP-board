@@ -30,7 +30,7 @@ public class BoardResDTO {
     @Schema(description = "댓글")
     private List<CommentResDTO> commentList;
 
-    private MultipartFile file;
+    private File file;
 
 
     public BoardResDTO(Board board){
@@ -41,7 +41,7 @@ public class BoardResDTO {
         this.hit = board.getHit();
         this.commentList = board.getCommentList().stream()
                 .map(CommentResDTO:: new).collect(Collectors.toList());
-        this.file = (MultipartFile) board.getFile();
+        this.file = board.getFile();
     }
 
 }

@@ -25,12 +25,9 @@ public class File extends BaseTimeEntity {
 
     private String fileType;
 
-    @OneToOne
-    @JoinColumn(name = "board_id")
-    private Board board;
-
     @Lob
     @Column(name = "file_data",length=100000)
     private byte[] fileData;
+
 
 }

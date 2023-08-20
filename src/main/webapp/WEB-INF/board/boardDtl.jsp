@@ -25,15 +25,6 @@
             <th class="trth">내용</th>
             <td  colspan='3' class="tdContent">${board.content}</td>
         </tr>
-        <tr>
-            <th class="trth">파일 번호</th>
-            <td class="trtd" id="uploadFile" ></td>
-        </tr>
-        <tr>
-            <th class="trth">파일 번호</th>
-            <td class="trtd">${file.id}</td>
-        </tr>
-
 
     </table>
 
@@ -80,7 +71,6 @@
                 </div>
             </c:forEach>
         </div>
-
     </div>
 
     <div class="board-button">
