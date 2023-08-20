@@ -1,0 +1,40 @@
+.board-button{
+    margin-top: 30px;
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+}
+
+.trth{
+    width: 50px;
+}
+.trtd{
+    width: 100px;
+}
+.table{
+    margin-top: 20px;
+    height: 150px;
+}
+
+/*댓글 헤더*/
+.commentHeader{
+    border-bottom: 2px solid;
+    text-align: center;
+}
+/*댓글 창*/
+.row{
+    width: 100%;
+    border-bottom: 2px solid;
+    margin-left: 0px;
+    background-color: azure;
+    justify-content: center;
+}
+
+.commentGroup{
+    width: 1000px;
+    margin-left: 10px;
+}
+.commentList{
+    margin: 0 auto;
+    text-align: center;
+}

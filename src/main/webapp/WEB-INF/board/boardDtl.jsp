@@ -27,10 +27,13 @@
         </tr>
         <tr>
             <th class="trth">파일 번호</th>
-            <td class="trtd" >${file.id}</td>
-            <th class="trth">파일명</th>
-            <td class="trtd" >${file.fileName}</td>
+            <td class="trtd" id="uploadFile" ></td>
         </tr>
+        <tr>
+            <th class="trth">파일 번호</th>
+            <td class="trtd">${file.id}</td>
+        </tr>
+
 
     </table>
 

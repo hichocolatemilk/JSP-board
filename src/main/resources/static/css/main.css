@@ -1,3 +1,10 @@
+@import "screen/board.css";
+@import "screen/boardDtl.css";
+@import "screen/commentUpdate.css";
+@import "screen/post.css";
+@import "screen/update.css";
+
+
 html{
     position: relative;
     min-height: 100%;
@@ -21,66 +28,10 @@ body{
 .navbar-brand{
     text-decoration-line: none;
 }
-.board-button{
-    margin-top: 30px;
-}
-.col-md-12{
-    width:100%;
-}
-.col-md-3{
-    text-align: center;
-    border : 2px solid;
-    margin: 0 auto;
-    width: 100%;
 
-}
-.row{
-    margin-left: 30px;
-}
 .pagination{
     justify-content: center;
 }
-.postTitle{
-    text-align: center;
-}
-.trth{
-    width: 50px;
-}
-.trtd{
-    width: 100px;
-}
-.table{
-    margin-top: 20px;
-    height: 150px;
-}
 
-.board-button{
-    position: absolute;
-    right: 0;
-    bottom: 100px;
-}
 
-.commentHeader{
-    border-bottom: 2px solid;
-    text-align: center;
-}
 
-.row{
-    width: 100%;
-    border-bottom: 2px solid;
-    margin-left: 0px;
-    background-color: azure;
-    justify-content: center;
-}
-.row button{
-
-}
-
-.commentGroup{
-    width: 1000px;
-    margin-left: 10px;
-}
-.commentList{
-    margin: 0 auto;
-    text-align: center;
-}

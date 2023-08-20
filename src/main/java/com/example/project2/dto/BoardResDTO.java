@@ -4,6 +4,7 @@ import com.example.project2.entity.Board;
 import com.example.project2.entity.File;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +30,7 @@ public class BoardResDTO {
     @Schema(description = "댓글")
     private List<CommentResDTO> commentList;
 
-    private File file;
+    private MultipartFile file;
 
 
     public BoardResDTO(Board board){
@@ -40,7 +41,7 @@ public class BoardResDTO {
         this.hit = board.getHit();
         this.commentList = board.getCommentList().stream()
                 .map(CommentResDTO:: new).collect(Collectors.toList());
-        this.file = board.getFile();
+        this.file = (MultipartFile) board.getFile();
     }
 
 }

@@ -60,7 +60,7 @@ public class BoardController {
     public String boardDtl(@PathVariable("id") Long id, Model model){
         BoardResDTO boardResDTO = boardService.getBoardId(id);
         List<CommentResDTO> commentList =  boardResDTO.getCommentList();
-        File file = boardResDTO.getFile();
+        File file = (File) boardResDTO.getFile();
 
         if (commentList != null && !commentList.isEmpty())
         {
