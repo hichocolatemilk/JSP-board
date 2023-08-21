@@ -49,7 +49,7 @@ public class BoardController {
         return "/board/board";
     }
 
-    @GetMapping("/board/{id}")
+    @GetMapping("/board/view/update/{id}")
     public String update(@PathVariable("id") Long id, Model model){
         BoardResDTO boardResDTO = boardService.getBoardId(id);
         model.addAttribute("board", boardResDTO);
@@ -60,14 +60,17 @@ public class BoardController {
     public String boardDtl(@PathVariable("id") Long id, Model model){
         BoardResDTO boardResDTO = boardService.getBoardId(id);
         List<CommentResDTO> commentList =  boardResDTO.getCommentList();
-        File file = boardResDTO.getFile();
+        List<FileResDTO> fileList = boardResDTO.getFileList();
 
         if (commentList != null && !commentList.isEmpty())
         {
             model.addAttribute("commentList", commentList); // 댓글
         }
+        if (fileList != null && !fileList.isEmpty())
+        {
+            model.addAttribute("fileList", fileList); // 댓글
+        }
         boardService.updateHit(id); //조회수
-        model.addAttribute("file", file);
         model.addAttribute("board", boardResDTO);
         return "/board/boardDtl";
     }

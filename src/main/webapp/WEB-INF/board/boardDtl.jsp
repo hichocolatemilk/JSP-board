@@ -25,6 +25,14 @@
             <th class="trth">내용</th>
             <td  colspan='3' class="tdContent">${board.content}</td>
         </tr>
+        <tr>
+            <th class="trth">파일</th>
+            <td>
+                <c:forEach items="${fileList}" var="file" varStatus="status">
+                   ${file.fileName}
+                </c:forEach>
+            </td>
+        </tr>
 
     </table>
 
@@ -74,7 +82,7 @@
     </div>
 
     <div class="board-button">
-        <a href="/post/view/${board.id}">
+        <a href="/board/view/update/${board.id}">
             <button onClick="location.href='update.jsp'" type="button" class="btn btn-secondary">게시글 수정</button>
         </a>
     </div>

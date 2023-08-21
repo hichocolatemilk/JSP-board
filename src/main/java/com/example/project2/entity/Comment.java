@@ -22,8 +22,8 @@ public class Comment extends BaseTimeEntity {
     @Column(nullable = false)
     private String commentWriter;
 
-    @JoinColumn(name = "board_id")
     @ManyToOne
+    @JoinColumn(name = "board_id")
     private Board board;
 
     public void update(String comment){
