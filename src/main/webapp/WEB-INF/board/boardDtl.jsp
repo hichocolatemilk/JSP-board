@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-
 <div>
     <table  class="table table-bordered">
 
@@ -29,7 +28,10 @@
             <th class="trth">파일</th>
             <td>
                 <c:forEach items="${fileList}" var="file" varStatus="status">
-                   ${file.fileName}
+                    <span id="fileName">${file.fileName}</span>
+                    <button id="icon-download">
+                        <i class="bi bi-download"></i>
+                    </button>
                 </c:forEach>
             </td>
         </tr>

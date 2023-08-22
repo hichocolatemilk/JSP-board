@@ -2,8 +2,10 @@ package com.example.project2.dto;
 
 import com.example.project2.entity.File;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class FileResDTO {
 
     private Long id;

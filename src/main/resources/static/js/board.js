@@ -13,6 +13,9 @@ let board = {
         $('#btn-file').on('click', function () {
             _this.file();
         });
+        $('#icon-download').on('click', function () {
+            _this.download();
+        });
     },
     save: function (){
         let data = {
@@ -53,7 +56,7 @@ let board = {
         })
     },
     delete: function (){
-        let id = $('#id').val();
+        const id = $('#id').val();
         $.ajax({
             type: 'DELETE',
             url: '/api/board/' + id,
@@ -66,7 +69,7 @@ let board = {
             alert("실패");
         })
     },
-    file: function(e) {
+    file: function() {
 
         const file = $("#file")[0].files[0];
         const formData = new FormData();
@@ -86,6 +89,32 @@ let board = {
             console.log("Ajax 요청 실패:", error);
             alert("파일업로드 실패");
         });
+    },
+    download: function (){
+
+        const fileName = $("#fileName").text();
+        Url = "/api/fileSystem/" + fileName;
+
+        $.ajax({
+            type: 'GET',
+            url: Url,
+            xhrFields: {  //response 데이터를 바이너리로 처리한다.
+                responseType: 'blob'
+            },
+            success : function(data) {
+                console.log("완료");
+                let blob = new Blob([data]);
+                //파일저장
+                if (navigator.msSaveBlob) {
+                    return navigator.msSaveBlob(blob, url);
+                } else {
+                    let link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = Url;
+                    link.click();
+                }
+            }
+        })
     }
 };
 board.init();

@@ -22,6 +22,7 @@
                 </div>
             </form>
 
+
             <button type="submit" class="btn btn-primary" id="btn-save"> 등록 </button>
             <a href="/" role="button" class="btn btn-secondary"> 취소 </a>
         </div>

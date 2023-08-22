@@ -42,10 +42,10 @@ public class Board extends BaseTimeEntity {
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.REMOVE,fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinColumn(name = "file_id")
     private List<File> fileList = new ArrayList<>();
-
+    
     public void update(String title, String content){
         this.title = title;
         this.content = content;

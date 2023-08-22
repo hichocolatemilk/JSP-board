@@ -19,7 +19,6 @@ import java.io.IOException;
 public class FileService {
 
     private final FileRepository fileRepository;
-    private final BoardService boardService;
 
     public String uploadImage(MultipartFile file) throws IOException {
         log.info("upload file: {}", file);

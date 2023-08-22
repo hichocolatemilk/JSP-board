@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -44,7 +45,7 @@ public class BoardApiController {
             @ApiResponse(responseCode = "500", description = "JSON 오타 확인 요망")
     })
     @PostMapping("/board")
-    public Long postBoard(@RequestBody @Valid BoardReqDTO boardReqDTO){
+    public Long postBoard(@RequestBody @Valid BoardReqDTO boardReqDTO) throws IOException {
         log.info("===== POST =====");
         log.info("JSON: " + boardReqDTO);
         log.info("================");
