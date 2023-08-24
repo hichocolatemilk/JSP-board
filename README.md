@@ -27,6 +27,11 @@
   * Gradle 7.6
 ------------------------------
 
+* #### DB
+  ![DB](https://github.com/hichocolatemilk/JSP-board/assets/111757770/fc4baa92-6825-4df0-9c0f-3d62be299e81)
+
+
+
 * #### API 설명
   ![게시판api](https://github.com/hichocolatemilk/JSP-board/assets/111757770/82e9df44-6d5a-49b4-a6f3-8df0f713b116)
   ![댓글 API](https://github.com/hichocolatemilk/JSP-board/assets/111757770/ad8b2f4f-950f-4db4-a770-f58b3fc39b65)
