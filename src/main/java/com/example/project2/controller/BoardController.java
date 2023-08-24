@@ -66,10 +66,12 @@ public class BoardController {
         {
             model.addAttribute("commentList", commentList); // 댓글
         }
+
         if (fileList != null && !fileList.isEmpty())
         {
-            model.addAttribute("fileList", fileList); // 댓글
+            model.addAttribute("fileList", fileList); // 파일
         }
+
         boardService.updateHit(id); //조회수
         model.addAttribute("board", boardResDTO);
         return "/board/boardDtl";

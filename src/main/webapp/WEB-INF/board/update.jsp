@@ -24,10 +24,6 @@
                     <textarea class="form-control" id="content">${board.content}</textarea>
                 </div>
             </form>
-            <form id="fileForm">
-                <input type="file" id="file">
-                <button type="button" id="btn-file">파일 등록</button>
-            </form>
             <button type="button" class="btn btn-primary" id="btn-update"> 수정 </button>
             <a onClick="location.href='boardDtl.jsp'" href="/board/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
             <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>

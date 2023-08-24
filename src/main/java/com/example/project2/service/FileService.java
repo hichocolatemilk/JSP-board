@@ -1,6 +1,9 @@
 package com.example.project2.service;
 
+import com.example.project2.dto.FileResDTO;
+import com.example.project2.entity.Board;
 import com.example.project2.entity.File;
+import com.example.project2.repository.BoardRepository;
 import com.example.project2.repository.FileRepository;
 import com.example.project2.utils.FileUtils;
 import lombok.RequiredArgsConstructor;
@@ -19,14 +22,23 @@ import java.io.IOException;
 public class FileService {
 
     private final FileRepository fileRepository;
+    private final BoardRepository boardRepository;
 
-    public String uploadImage(MultipartFile file) throws IOException {
+    //파일 업로드
+    public String uploadFile(MultipartFile file, Long id) throws IOException {
         log.info("upload file: {}", file);
+
+        Board board = boardRepository.findById(id).orElse(null);
+        if (board == null) {
+            // 해당 ID의 board가 없을 경우 처리 (에러 처리 등)
+            return "Invalid board ID";
+        }
         File files = fileRepository.save(
                 File.builder()
                         .fileName(file.getOriginalFilename())
                         .fileType(file.getContentType())
                         .fileData(FileUtils.compressFile(file.getBytes()))
+                        .board(board)
                         .build());
         if (files != null) {
             log.info("fileData: {}", files);
@@ -35,14 +47,28 @@ public class FileService {
         return null;
     }
 
-    // 이미지 파일로 압축하기
-    public byte[] downloadImage(String fileName) {
+    // 파일 다운로드
+    public byte[] downloadFile(String fileName) {
         File files = fileRepository.findByFileName(fileName)
                 .orElseThrow(RuntimeException::new);
 
-        log.info("download imageData: {}", files);
+        log.info("download Data: {}", files);
 
         return FileUtils.decompressFile(files.getFileData());
+    }
+
+    //REST GET
+    public FileResDTO getFileId(Long fileId){
+        File file = fileRepository.findById(fileId).orElseThrow(
+                () -> new IllegalArgumentException("파일을 찾을 수 없습니다." + fileId));
+        return new FileResDTO(file);
+    }
+
+    //REST DELETE
+    public void fileDelete(Long id){
+        File file = fileRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("파일을 찾을 수 없습니다." + id));
+        fileRepository.delete(file);
     }
 }
 

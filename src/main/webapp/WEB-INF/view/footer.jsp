@@ -8,6 +8,7 @@
 </footer>
 <script src="/js/board.js"></script>
 <script src="/js/comment.js"></script>
+<script src="/js/file.js"></script>
 </div>
 </body>
 </html>

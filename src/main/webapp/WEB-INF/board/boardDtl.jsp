@@ -20,20 +20,29 @@
             <th class="trth">조회수</th>
             <td class="trtd" >${board.hit}</td>
         </tr>
+
+        <tr>
+            <th class="trth">파일</th>
+            <td colspan="3">
+
+                <a onClick="location.href='filePost.jsp'" href="/board/view/${board.id}/fileSystem">
+                    <i class="bi bi-archive">파일 업로드</i>
+                </a>
+                <c:forEach items="${fileList}" var="file" varStatus="status">
+                    <span id="fileName">${file.fileName}</span>
+                    <button >
+                        <i id="icon-download" class="bi bi-download"></i>
+                    </button>
+                    <a onClick="location.href='fileUpdate.jsp'" href="/board/view/${board.id}/fileSystem/${file.id}">
+                        <i class="bi bi-archive">파일 수정</i>
+                    </a>
+                </c:forEach>
+            </td>
+        </tr>
+
         <tr>
             <th class="trth">내용</th>
             <td  colspan='3' class="tdContent">${board.content}</td>
-        </tr>
-        <tr>
-            <th class="trth">파일</th>
-            <td>
-                <c:forEach items="${fileList}" var="file" varStatus="status">
-                    <span id="fileName">${file.fileName}</span>
-                    <button id="icon-download">
-                        <i class="bi bi-download"></i>
-                    </button>
-                </c:forEach>
-            </td>
         </tr>
 
     </table>

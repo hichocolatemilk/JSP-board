@@ -25,8 +25,6 @@ public class FileUtils {
         return outputStream.toByteArray();
     }
 
-
-
     public static byte[] decompressFile(byte[] data) {
         Inflater inflater = new Inflater();
         inflater.setInput(data);

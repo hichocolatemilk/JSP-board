@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class BoardResDTO {
+public class BoardResDTO{
 
     @Schema(description = "글번호")
     private Long id;
@@ -30,6 +30,7 @@ public class BoardResDTO {
     @Schema(description = "댓글")
     private List<CommentResDTO> commentList;
 
+    @Schema(description = "파일")
     private List<FileResDTO> fileList;
 
 
@@ -41,6 +42,7 @@ public class BoardResDTO {
         this.hit = board.getHit();
         this.commentList = board.getCommentList().stream()
                 .map(CommentResDTO:: new).collect(Collectors.toList());
-        this.fileList = board.getFileList().stream().map(FileResDTO:: new).collect(Collectors.toList());
+        this.fileList = board.getFileList().stream()
+                .map(FileResDTO:: new).collect(Collectors.toList());
     }
 }

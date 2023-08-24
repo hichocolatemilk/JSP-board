@@ -57,6 +57,6 @@ public class CommentApiController {
     @DeleteMapping("/board/{id}/comment/{commentId}")
     public Long deleteComment(@PathVariable("id") Long id, @PathVariable("commentId") Long commentId){
         commentService.deleteComment(id, commentId);
-        return id;
+        return commentId;
     }
 }

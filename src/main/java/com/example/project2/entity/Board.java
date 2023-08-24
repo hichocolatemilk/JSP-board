@@ -38,12 +38,12 @@ public class Board extends BaseTimeEntity {
     @ColumnDefault("0")
     private Integer hit;
 
-    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "board", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Comment> commentList = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-    @JoinColumn(name = "file_id")
+    @OneToMany(mappedBy = "board",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<File> fileList = new ArrayList<>();
     
     public void update(String title, String content){

@@ -1,6 +1,7 @@
 package com.example.project2.dto;
 
 import com.example.project2.entity.File;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -18,5 +19,6 @@ public class FileResDTO {
         this.fileName = file.getFileName();
         this.fileType = file.getFileType();
         this.fileData = file.getFileData();
+
     }
 }
