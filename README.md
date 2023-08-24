@@ -30,8 +30,6 @@
 ------------------------------
 
 * #### API 설명
-
-  * 게시판 API
-   ![게시판api](https://github.com/hichocolatemilk/JSP-board/assets/111757770/82e9df44-6d5a-49b4-a6f3-8df0f713b116)
+  ![게시판api](https://github.com/hichocolatemilk/JSP-board/assets/111757770/82e9df44-6d5a-49b4-a6f3-8df0f713b116)
 
   
