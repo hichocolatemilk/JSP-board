@@ -4,6 +4,7 @@ import com.example.project2.dto.FileReqDTO;
 import com.example.project2.service.BoardService;
 import com.example.project2.service.FileService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.io.IOException;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/api")
+@Tag(name = "파일 API", description = "파일 API(업로드, 다운로드, 삭제)")
 @Slf4j
 public class FileApiController {
 

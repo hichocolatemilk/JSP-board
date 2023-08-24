@@ -4,16 +4,13 @@ import com.example.project2.dto.BoardReqDTO;
 import com.example.project2.dto.BoardResDTO;
 import com.example.project2.dto.BoardUpdateDTO;
 import com.example.project2.entity.Board;
-import com.example.project2.entity.File;
 import com.example.project2.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 
 @RequiredArgsConstructor

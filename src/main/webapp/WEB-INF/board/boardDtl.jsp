@@ -25,10 +25,8 @@
             <th class="trth">파일</th>
             <td colspan="3">
 
-                <a onClick="location.href='filePost.jsp'" href="/board/view/${board.id}/fileSystem">
-                    <i class="bi bi-archive">파일 업로드</i>
-                </a>
                 <c:forEach items="${fileList}" var="file" varStatus="status">
+                    <span>${file.id}</span>
                     <span id="fileName">${file.fileName}</span>
                     <button >
                         <i id="icon-download" class="bi bi-download"></i>
@@ -37,6 +35,11 @@
                         <i class="bi bi-archive">파일 수정</i>
                     </a>
                 </c:forEach>
+                <c:if test="${fn:length(board.fileList) <= 0}">
+                    <a onClick="location.href='filePost.jsp'" href="/board/view/${board.id}/fileSystem">
+                        <i class="bi bi-archive">파일 업로드</i>
+                    </a>
+                </c:if>
             </td>
         </tr>
 
