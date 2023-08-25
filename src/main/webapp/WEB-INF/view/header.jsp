@@ -15,7 +15,7 @@
     <title>HELLO^^</title>
 </head>
 <body>
-    <nav class="navbar" style="background-color: aquamarine;">
+    <nav class="navbar">
         <div class="container-fluid">
             <a href="/" class="navbar-brand">게시판 프로젝트</a>
             <form class="d-flex" role="search" action="/">

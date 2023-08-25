@@ -19,7 +19,6 @@ import java.util.List;
 public class BoardService {
 
     private final BoardRepository boardRepository;
-    private final FileService fileService;
 
 
     //MVC PAGING

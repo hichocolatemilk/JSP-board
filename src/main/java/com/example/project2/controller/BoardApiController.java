@@ -45,7 +45,7 @@ public class BoardApiController {
             @ApiResponse(responseCode = "500", description = "JSON 오타 확인 요망")
     })
     @PostMapping("/board")
-    public Long postBoard(@RequestBody @Valid BoardReqDTO boardReqDTO) throws IOException {
+    public Long postBoard(@RequestBody @Valid BoardReqDTO boardReqDTO){
         log.info("===== POST =====");
         log.info("JSON: " + boardReqDTO);
         log.info("================");
@@ -54,7 +54,7 @@ public class BoardApiController {
 
     @Operation(summary = "선택한 게시글 수정", description = "선택한 게시글을 수정한다.")
     @PutMapping("/board/{id}")
-    public Long updateBoard(@PathVariable("id") Long id, @RequestBody BoardUpdateDTO boardUpdateDTO){
+    public Long updateBoard(@PathVariable("id") Long id, @RequestBody @Valid BoardUpdateDTO boardUpdateDTO){
         log.info("===== PUT =====");
         log.info("JSON: " + boardUpdateDTO);
         log.info("================");

@@ -4,7 +4,6 @@ import com.example.project2.dto.BoardResDTO;
 import com.example.project2.dto.CommentResDTO;
 import com.example.project2.dto.FileResDTO;
 import com.example.project2.entity.Board;
-import com.example.project2.entity.File;
 import com.example.project2.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

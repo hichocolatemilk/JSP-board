@@ -24,7 +24,7 @@ let file ={
 
         $.ajax({
             type: 'POST',
-            url: "/api/"+ boardId +"/fileSystem",
+            url: '/api/board/'+ boardId +'/fileSystem',
             data: formData,
             contentType: false,
             processData: false,
@@ -42,7 +42,7 @@ let file ={
     download: function (){
 
         const fileName = $("#fileName").text();
-        Url = "/api/fileSystem/" + fileName;
+        Url = '/api/board/fileSystem/' + fileName;
 
         $.ajax({
             type: 'GET',
@@ -67,7 +67,7 @@ let file ={
         const boardId = $('#boardId').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/fileSystem/' + fileId,
+            url: '/api/board/'+ boardId +'/fileSystem/' + fileId,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
         }).done(function() {
@@ -86,7 +86,7 @@ let file ={
 
         $.ajax({
             type: 'PUT', // PUT 요청
-            url: "/api/"+ boardId +"/fileSystem/" + fileId,
+            url: '/api/board/'+ boardId +'/fileSystem/' + fileId,
             data: formData,
             contentType: false,
             processData: false,

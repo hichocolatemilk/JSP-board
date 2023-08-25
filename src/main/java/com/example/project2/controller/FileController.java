@@ -1,12 +1,10 @@
 package com.example.project2.controller;
 
 import com.example.project2.dto.BoardResDTO;
-import com.example.project2.dto.CommentResDTO;
 import com.example.project2.dto.FileResDTO;
 import com.example.project2.service.BoardService;
 import com.example.project2.service.FileService;
 import lombok.RequiredArgsConstructor;
-import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -12,10 +12,11 @@
             <input type="hidden" id="boardId" c:out value="${board.id}">
         </div>
         <input type="file" id="file"/>
-        <button type="button" id="btn-file-update">파일 수정</button>
-        <button type="button" id="btn-file-delete">
+        <button type="button" class="btn btn-primary" id="btn-file-update">파일 수정</button>
+        <button type="button" class="btn btn-danger" id="btn-file-delete">
             <i class="bi bi-x-square">삭제</i>
         </button>
+        <a onClick="location.href='boardDtl.jsp'" href="/board/view/${board.id}" role="button" class="btn btn-secondary"> 취소 </a>
     </form>
 
 </div>

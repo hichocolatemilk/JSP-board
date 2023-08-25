@@ -23,6 +23,7 @@ body{
 }
 .navbar{
     height: 150px;
+    background-color: whitesmoke;
     border-bottom: 2px solid;
 }
 .navbar-brand{

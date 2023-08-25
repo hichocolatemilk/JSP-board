@@ -2,7 +2,6 @@ package com.example.project2.controller;
 
 import com.example.project2.dto.BoardResDTO;
 import com.example.project2.dto.CommentResDTO;
-import com.example.project2.entity.Board;
 import com.example.project2.service.BoardService;
 import com.example.project2.service.CommentService;
 import lombok.RequiredArgsConstructor;

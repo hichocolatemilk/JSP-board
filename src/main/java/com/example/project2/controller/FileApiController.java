@@ -1,7 +1,5 @@
 package com.example.project2.controller;
 
-import com.example.project2.dto.FileReqDTO;
-import com.example.project2.service.BoardService;
 import com.example.project2.service.FileService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -24,7 +22,7 @@ public class FileApiController {
 
     private final FileService fileService;
     @Operation(summary = "파일 생성", description = "파일을 생성한다.")
-    @PostMapping("/{id}/fileSystem")
+    @PostMapping("/board/{id}/fileSystem")
     public ResponseEntity<?> uploadFile(@PathVariable("id")Long id,@RequestParam("file") MultipartFile file) throws IOException {
         String uploadFile = fileService.uploadFile(file, id);
         log.info("===== POST =====");
@@ -35,7 +33,7 @@ public class FileApiController {
     }
     // 다운로드
     @Operation(summary = "파일 다운로드", description = "파일을 다운로드한다.")
-    @GetMapping("/fileSystem/{fileName}")
+    @GetMapping("/board/fileSystem/{fileName}")
     public ResponseEntity<?> downloadFile(@PathVariable("fileName") String fileName) {
         byte[] downloadFile = fileService.downloadFile(fileName);
         return ResponseEntity.status(HttpStatus.OK)
@@ -45,7 +43,7 @@ public class FileApiController {
 
     //파일 수정
     @Operation(summary = "파일 수정", description = "파일을 수정한다.")
-    @PutMapping("/{id}/fileSystem/{fileId}")
+    @PutMapping("/board/{id}/fileSystem/{fileId}")
     public ResponseEntity<String> updateFile(@PathVariable("id") Long id, @PathVariable("fileId") Long fileId, @RequestParam("file") MultipartFile file) {
         try {
             String result = fileService.updateFile(file, fileId, id);
@@ -57,11 +55,10 @@ public class FileApiController {
     }
 
     @Operation(summary = "파일 삭제", description = "파일을 삭제한다.")
-    @DeleteMapping("/fileSystem/{fileId}")
-    public Long deleteFile(@PathVariable("fileId") Long fileId){
-        fileService.fileDelete(fileId);
+    @DeleteMapping("/board/{id}/fileSystem/{fileId}")
+    public Long deleteFile(@PathVariable("id") Long id,@PathVariable("fileId") Long fileId){
+        fileService.fileDelete(id,fileId);
         return fileId;
     }
-
 }
 

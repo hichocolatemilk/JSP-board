@@ -1,10 +1,8 @@
 package com.example.project2.dto;
 
 import com.example.project2.entity.Board;
-import com.example.project2.entity.File;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;

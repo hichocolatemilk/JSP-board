@@ -87,10 +87,12 @@ public class FileService {
     }
 
     //REST DELETE
-    public void fileDelete(Long id){
-        File file = fileRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException("파일을 찾을 수 없습니다." + id));
+    public void fileDelete(Long id,Long fileId){
+        boardRepository.findById(id);
+        File file = fileRepository.findById(fileId).orElseThrow(
+                () -> new IllegalArgumentException("파일을 찾을 수 없습니다." + fileId));
         fileRepository.delete(file);
+        log.info("file deleted successfully");
     }
 }
 

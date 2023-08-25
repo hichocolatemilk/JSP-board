@@ -46,7 +46,7 @@ public class CommentApiController {
 
     @Operation(summary = "선택한 댓글 수정", description = "선택한 댓글을 수정한다.")
     @PutMapping("/board/{id}/comment/{commentId}")
-    public Long commentUpdate(@PathVariable("id") Long id,@PathVariable("commentId") Long commentId, @RequestBody CommentUpdateDTO commentUpdateDTO){
+    public Long commentUpdate(@PathVariable("id") Long id,@PathVariable("commentId") Long commentId, @RequestBody @Valid CommentUpdateDTO commentUpdateDTO){
         log.info("===== PUT =====");
         log.info("JSON: " + commentUpdateDTO);
         log.info("================");

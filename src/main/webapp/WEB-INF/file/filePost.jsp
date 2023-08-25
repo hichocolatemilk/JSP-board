@@ -11,7 +11,7 @@
             <input type="hidden" id="boardId" c:out value="${board.id}">
         </div>
         <input type="file" id="file"/>
-        <button type="button" id="btn-file">파일 등록</button>
+        <button type="button" class="btn btn-primary" id="btn-file">파일 등록</button>
     </form>
 
 </div>
