@@ -68,13 +68,16 @@ public class FileService {
             return "Invalid file ID";
         }
 
-        existingFile.setFileName(file.getOriginalFilename());
-        existingFile.setFileType(file.getContentType());
-        existingFile.setFileData(FileUtils.compressFile(file.getBytes()));
-        existingFile.setBoard(board);
+        File updatedFile = File.builder()
+                .id(existingFile.getId())
+                .fileName(file.getOriginalFilename())
+                .fileType(file.getContentType())
+                .fileData(FileUtils.compressFile(file.getBytes()))
+                .board(board)
+                .build();
 
-        fileRepository.save(existingFile);
-        log.info("File updated: {}", existingFile);
+        fileRepository.save(updatedFile);
+        log.info("File updated: {}", updatedFile);
 
         return "File updated successfully";
     }
