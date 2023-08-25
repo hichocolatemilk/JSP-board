@@ -44,7 +44,7 @@ public class FileService {
             log.info("fileData: {}", files);
             log.info("Successfully uploaded");
         }
-        return null;
+        return "Successfully uploaded";
     }
 
     // 파일 다운로드
