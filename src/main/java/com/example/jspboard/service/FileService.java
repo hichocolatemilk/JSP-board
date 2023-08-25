@@ -25,12 +25,12 @@ public class FileService {
     private final BoardRepository boardRepository;
 
     //파일 업로드
+    //REST POST(CREATE)
     public String uploadFile(MultipartFile file, Long id) throws IOException {
         log.info("upload file: {}", file);
 
         Board board = boardRepository.findById(id).orElse(null);
         if (board == null) {
-            // 해당 ID의 board가 없을 경우 처리 (에러 처리 등)
             return "Invalid board ID";
         }
         File files = fileRepository.save(
@@ -48,6 +48,7 @@ public class FileService {
     }
 
     // 파일 다운로드
+    //REST GET?(READ)
     public byte[] downloadFile(String fileName) {
         File files = fileRepository.findByFileName(fileName)
                 .orElseThrow(RuntimeException::new);
@@ -58,13 +59,13 @@ public class FileService {
     }
 
     //파일 수정
+    //REST PUT(UPDATE)
     public String updateFile(MultipartFile file, Long fileId, Long id) throws IOException {
         log.info("update file: {}", file);
 
         Board board = boardRepository.findById(id).orElse(null);
         File existingFile = fileRepository.findById(fileId).orElse(null);
         if (existingFile == null) {
-            // 해당 ID의 파일이 없을 경우 처리 (에러 처리 등)
             return "Invalid file ID";
         }
 

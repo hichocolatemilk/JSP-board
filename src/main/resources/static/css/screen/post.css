@@ -1,14 +1,16 @@
-/* */
+/* 입력 창*/
 .col-md-12{
     width:100%;
 }
-/**/
+/*입력 창*/
 .col-md-3{
     text-align: center;
     border : 2px solid;
     margin: 0 auto;
     width: 100%;
 }
+
+/*h1 타이틀*/
 .postTitle{
     text-align: center;
 }

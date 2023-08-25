@@ -5,6 +5,7 @@
 
 <div>
     <h1 class="postTitle">게시글 등록</h1>
+
     <div class="col-md-12">
         <div class="col-md-3 ">
             <form method="post">

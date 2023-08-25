@@ -1,9 +1,12 @@
+/*게시글 작성*/
 .board-button{
     margin-top: 30px;
     position: absolute;
     right: 0;
     bottom: 100px;
 }
+
+/*페이징*/
 .pagination{
     justify-content: center;
 }

@@ -5,12 +5,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <div>
+    <%-- 게시글 버튼    --%>
     <div class="board-button">
         <a href="/board/post">
             <button type="button" class="btn btn-primary">게시글 쓰기</button>
         </a>
     </div>
 
+    <%--  내용 테이블       --%>
     <table class="table table-bordered">
         <thead>
         <tr>

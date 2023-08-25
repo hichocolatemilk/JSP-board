@@ -95,6 +95,7 @@
         </div>
     </div>
 
+    <%-- 게시글 수정  버튼   --%>
     <div class="board-button">
         <a href="/board/view/update/${board.id}">
             <button onClick="location.href='update.jsp'" type="button" class="btn btn-secondary">게시글 수정</button>

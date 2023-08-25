@@ -6,6 +6,7 @@ import com.example.jspboard.dto.BoardUpdateDTO;
 import com.example.jspboard.entity.Board;
 import com.example.jspboard.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 @Transactional
+@Slf4j
 public class BoardService {
 
     private final BoardRepository boardRepository;
@@ -37,6 +39,7 @@ public class BoardService {
 
     //REST CREATE
     public Long boardSave(BoardReqDTO boardReqDTO){
+        log.info("board save: ", boardReqDTO);
         return boardRepository.save(boardReqDTO.toEntity()).getId();
     }
 
@@ -59,6 +62,7 @@ public class BoardService {
                 () -> new IllegalArgumentException("게시글을 찾을 수 없습니다." + id));
         board.update(boardUpdateDTO.getTitle(), boardUpdateDTO.getContent());
 
+        log.info("Board update:", boardUpdateDTO);
         return id;
     }
 

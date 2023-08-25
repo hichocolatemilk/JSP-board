@@ -6,6 +6,7 @@ import com.example.jspboard.dto.CommentUpdateDTO;
 import com.example.jspboard.entity.Comment;
 import com.example.jspboard.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 @Transactional
+@Slf4j
 public class CommentService {
 
     private final BoardService boardService;
@@ -22,6 +24,7 @@ public class CommentService {
     //REST CREATE
     public Long commentSave(Long id,CommentReqDTO commentReqDTO){
         boardService.getBoardId(id);
+        log.info("Comment saved: ", commentReqDTO);
         return commentRepository.save(commentReqDTO.toEntity()).getCommentId();
     }
 
@@ -45,6 +48,7 @@ public class CommentService {
         Comment comment = commentRepository.findById(commentId).orElseThrow(
                 () -> new IllegalArgumentException("댓글을 찾을 수 없습니다." + id));
         comment.update(commentUpdateDTO.getComment());
+        log.info("Updated comment: ", commentUpdateDTO);
         return id;
     }
 
