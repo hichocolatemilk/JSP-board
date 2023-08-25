@@ -93,7 +93,7 @@ let file ={
         }).done(function() {
             // 파일 수정 성공 시 동작
             alert("파일 수정 완료");
-            window.location.reload(); // 페이지 새로고침
+            window.location.href = "/board/view/" + boardId;
         }).fail(function(xhr, status, error) {
             // 파일 수정 실패 시 동작
             console.log("Ajax 요청 실패:", error);

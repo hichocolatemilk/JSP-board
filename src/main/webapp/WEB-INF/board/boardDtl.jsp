@@ -26,7 +26,7 @@
             <td colspan="3">
 
                 <c:forEach items="${fileList}" var="file" varStatus="status">
-                    <span>${file.id}</span>
+                    <input type="hidden" c:out value="${file.id}"/>
                     <span id="fileName">${file.fileName}</span>
                     <button >
                         <i id="icon-download" class="bi bi-download"></i>
