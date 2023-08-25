@@ -44,14 +44,11 @@ public class FileApiController {
     //파일 수정
     @Operation(summary = "파일 수정", description = "파일을 수정한다.")
     @PutMapping("/board/{id}/fileSystem/{fileId}")
-    public ResponseEntity<String> updateFile(@PathVariable("id") Long id, @PathVariable("fileId") Long fileId, @RequestParam("file") MultipartFile file) {
-        try {
-            String result = fileService.updateFile(file, fileId, id);
-            return ResponseEntity.ok(result);
-        } catch (IOException e) {
-            log.error("Error updating file: {}", e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating file");
-        }
+    public ResponseEntity<String> updateFile(@PathVariable("id") Long id, @PathVariable("fileId") Long fileId,
+                                             @RequestParam("file") MultipartFile file)throws IOException {
+
+        String updateFile = fileService.updateFile(file, fileId, id);
+        return ResponseEntity.ok(updateFile);
     }
 
     @Operation(summary = "파일 삭제", description = "파일을 삭제한다.")
