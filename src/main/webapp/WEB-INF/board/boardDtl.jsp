@@ -68,7 +68,7 @@
         <h2 class="commentHeader"> 댓글 </h2>
         <form class="row">
             <div>
-                <input type="hidden" id="id" c:out value="${board.id}">
+                <input type="hidden" id="boardId" c:out value="${board.id}">
             </div>
             <div class="input-group-sm mb-3">
                 <input type="text" class="form-control" id="commentWriter" placeholder="작성자를 입력하세요">

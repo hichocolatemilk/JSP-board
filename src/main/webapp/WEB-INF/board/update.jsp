@@ -9,7 +9,7 @@
         <div class="col-md-4">
             <form>
                 <div>
-                    <input type="hidden" id="id" c:out value="${board.id}">
+                    <input type="hidden" id="boardId" c:out value="${board.id}">
                 </div>
                 <div class="form-group">
                     <label for="title">제목</label>

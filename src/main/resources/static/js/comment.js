@@ -13,12 +13,12 @@ let comment = {
 
     },
     commentSave: function () {
-        let id = $('#id').val();
+        let boardId = $('#boardId').val();
         let data = {
             comment: $('#comment').val(),
             commentWriter: $('#commentWriter').val(),
             board: {
-                id: id
+                id: boardId
             }
         };
         $.ajax({
@@ -37,40 +37,40 @@ let comment = {
     },
     commentUpdate: function () {
 
-        let id = $('#id').val();
+        let boardId = $('#boardId').val();
         let commentId = $('#commentId').val();
         let data = {
             comment: $('#comment').val(),
             commentWriter: $('#commentWriter').val(),
             board: {
-                id: id
+                id: boardId
             }
         };
         $.ajax({
             type: 'PUT',
-            url: '/api/board/' + id + '/comment/' + commentId ,
+            url: '/api/board/' + boardId + '/comment/' + commentId ,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
         }).done(function () {
             alert("수정");
-            window.location.href = "/board/view/" + id;
+            window.location.href = "/board/view/" + boardId;
         }).fail(function () {
             alert("실패");
             console.log(data)
         })
     },
     commentDelete: function (){
-        let id = $('#id').val();
+        let boardId = $('#boardId').val();
         let commentId = $('#commentId').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/board/' + id + '/comment/' + commentId,
+            url: '/api/board/' + boardId + '/comment/' + commentId,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,'
         }).done(function() {
             alert("삭제");
-            window.location.href = "/board/view/" + id;
+            window.location.href = "/board/view/" + boardId;
         }).fail(function (){
             alert("실패");
         })

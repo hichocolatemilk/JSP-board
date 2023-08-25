@@ -36,10 +36,10 @@ let board = {
             title: $('#title').val(),
             content: $('#content').val()
         };
-        let id = $('#id').val();
+        let boardId = $('#boardId').val();
         $.ajax({
             type: 'PUT',
-            url: '/api/board/' + id,
+            url: '/api/board/' + boardId,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
             data: JSON.stringify(data),
@@ -51,10 +51,10 @@ let board = {
         })
     },
     delete: function (){
-        const id = $('#id').val();
+        const boardId = $('#boardId').val();
         $.ajax({
             type: 'DELETE',
-            url: '/api/board/' + id,
+            url: '/api/board/' + boardId,
             dataType: 'json',
             contentType: 'application/json; charset=utf-8,',
         }).done(function() {
