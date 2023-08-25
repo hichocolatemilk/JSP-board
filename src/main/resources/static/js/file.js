@@ -10,6 +10,9 @@ let file ={
         $('#btn-file-delete').on('click', function () {
             _this.delete();
         });
+        $('#btn-file-update').on('click', function () {
+            _this.update();
+        });
     },
     file: function() {
 
@@ -73,6 +76,29 @@ let file ={
         }).fail(function (){
             alert("실패");
         })
+    },
+    update: function() {
+        const fileId = $('#fileId').val(); // 수정할 파일의 ID를 얻어옴
+        const boardId = $('#boardId').val();
+        const file = $("#file")[0].files[0];
+        const formData = new FormData();
+        formData.append("file", file);
+
+        $.ajax({
+            type: 'PUT', // PUT 요청
+            url: "/api/"+ boardId +"/fileSystem/" + fileId,
+            data: formData,
+            contentType: false,
+            processData: false,
+        }).done(function() {
+            // 파일 수정 성공 시 동작
+            alert("파일 수정 완료");
+            window.location.reload(); // 페이지 새로고침
+        }).fail(function(xhr, status, error) {
+            // 파일 수정 실패 시 동작
+            console.log("Ajax 요청 실패:", error);
+            alert("파일 수정 실패");
+        });
     }
 }
 file.init();

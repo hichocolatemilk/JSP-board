@@ -8,11 +8,11 @@
 
     <form id="fileForm">
         <div>
-            <input type="hidden" id="fileId" c:out value="${file.fileId}">
+            <input type="hidden" id="fileId" c:out value="${file.id}">
             <input type="hidden" id="boardId" c:out value="${board.id}">
         </div>
         <input type="file" id="file"/>
-        <button type="button" id="btn-file">파일 등록</button>
+        <button type="button" id="btn-file-update">파일 수정</button>
         <button type="button" id="btn-file-delete">
             <i class="bi bi-x-square">삭제</i>
         </button>
